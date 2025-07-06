@@ -14,3 +14,4 @@ Cada card exibe o título, descrição e data relacionada ao status da tarefa e 
 ## Como executar
 
 Basta fazer o download do projeto e abrir o arquivo index.html no seu browser.
+Possui chamadas para a API do projeto https://github.com/rafaelmarcato/dfsb-back-end
