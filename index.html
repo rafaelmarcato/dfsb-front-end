@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Controle de tarefas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+<body>
+    <header>Controle de tarefas</header>
+    <div class="container">
+        <div class="column" id="coluna1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2>A fazer</h2>
+        <button class="button" onclick="abrirModalAdicionar()">Nova tarefa</button>
+        </div>
+        <div class="column" id="coluna2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2>Em andamento</h2>
+        </div>
+        <div class="column" id="coluna3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2>Concluído</h2>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <div class="modal" id="modalAdicionar">
+        <div class="modal-content">
+        <h3>Nova Tarefa</h3>
+        <input type="text" id="titulo" placeholder="Título">
+        <textarea id="descricao" placeholder="Descrição"></textarea>
+        <div class="modal-buttons">
+            <button onclick="fecharModal('modalAdicionar')">Cancelar</button>
+            <button onclick="salvarTarefa()">Salvar</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalEditar">
+        <div class="modal-content">
+        <h3>Editar Tarefa</h3>
+        <input type="hidden"  id="idEdit" value="0">
+        <input type="text" id="tituloEdit" placeholder="Título">
+        <textarea id="descricaoEdit" placeholder="Descrição"></textarea>
+        <select id="statusEdit">
+            <option value="1">A fazer</option>
+            <option value="2">Em andamento</option>
+            <option value="3">Concluído</option>
+        </select>
+        <div class="modal-buttons">
+            <button onclick="fecharModal('modalEditar')">Cancelar</button>
+            <button onclick="salvarEdicao()">Salvar</button>
+        </div>
+        </div>
+    </div>
+    <!-- Modal de confirmação de exclusão -->
+    <div class="modal" id="modalConfirmarExclusao">
+        <div class="modal-content">
+        <h3>Deseja realmente excluir esta tarefa?</h3>
+        <div class="modal-buttons">
+            <button onclick="fecharModal('modalConfirmarExclusao')">Cancelar</button>
+            <button onclick="confirmarExclusao()">Excluir</button>
+        </div>
+        </div>
+    </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
